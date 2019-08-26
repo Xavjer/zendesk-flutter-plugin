@@ -14,7 +14,6 @@
     [[ZDCChatOverlay appearance] setTypingIndicatorDiameter:@(4.0f)];
     [[ZDCChatOverlay appearance] setMessageCountFont:[UIFont systemFontOfSize:15.0f]];
     [[ZDCChatOverlay appearance] setInsets:[NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(75.0f, 15.0f, 15.0f, 15.0f)]];
-    
 
     insets = UIEdgeInsetsMake(20.0f, 30.0f, 0.0f, 30.0f);
     [[ZDCFormCellDepartment appearance] setTextFrameInsets:[NSValue valueWithUIEdgeInsets:insets]];
@@ -61,8 +60,5 @@
 {
   return [UINavigationBar appearance].tintColor;
 }
-
-
-
 
 @end

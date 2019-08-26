@@ -3,7 +3,7 @@
 #import "ViewController.h"
 
 #import <ZDCChat/ZDCChat.h>
-
+#import "GetChange+ZDCPreChatFormView.h"
 
 @implementation ZendeskFlutterPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
