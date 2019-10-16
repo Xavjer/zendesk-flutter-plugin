@@ -247,74 +247,74 @@ public class ZendeskFlutterPlugin implements MethodCallHandler {
     }
   }
 
-  private void bindChatListeners() {
-    unbindChatListeners();
+//  private void bindChatListeners() {
+//    unbindChatListeners();
+//
+//    DataSource datasource = ZopimChatApi.getDataSource();
+//
+//    connectionObserver = new ConnectionObserver() {
+//      @Override
+//      protected void update(Connection connection) {
+//        mainHandler.post(() -> {
+//          connectionStreamHandler.success(connection.getStatus().name());
+//        });
+//      }
+//    };
+//    datasource.addConnectionObserver(connectionObserver).trigger();
+//
+//    accountObserver = new AccountObserver() {
+//      @Override
+//      public void update(Account account) {
+//        mainHandler.post(() -> {
+//          accountStreamHandler.success(account.getStatus() != null ? account.getStatus().getValue() : Account.Status.UNKNOWN.getValue());
+//        });
+//      }
+//    };
+//    datasource.addAccountObserver(accountObserver).trigger();
+//
+//    agentsObserver = new AgentsObserver() {
+//      @Override
+//      protected void update(Map<String, Agent> agents) {
+//        mainHandler.post(() -> {
+//          String json = toJson(agents);
+//          agentsStreamHandler.success(json);
+//        });
+//      }
+//    };
+//    datasource.addAgentsObserver(agentsObserver).trigger();
+//
+//    chatLogObserver = new ChatLogObserver() {
+//      @Override
+//      protected void update(LinkedHashMap<String, ChatLog> items) {
+//        mainHandler.post(() -> {
+//          String json = toJson(items);
+//          chatItemsStreamHandler.success(json);
+//        });
+//      }
+//    };
+//    datasource.addChatLogObserver(chatLogObserver).trigger();
+//  }
 
-    DataSource datasource = ZopimChatApi.getDataSource();
-
-    connectionObserver = new ConnectionObserver() {
-      @Override
-      protected void update(Connection connection) {
-        mainHandler.post(() -> {
-          connectionStreamHandler.success(connection.getStatus().name());
-        });
-      }
-    };
-    datasource.addConnectionObserver(connectionObserver).trigger();
-
-    accountObserver = new AccountObserver() {
-      @Override
-      public void update(Account account) {
-        mainHandler.post(() -> {
-          accountStreamHandler.success(account.getStatus() != null ? account.getStatus().getValue() : Account.Status.UNKNOWN.getValue());
-        });
-      }
-    };
-    datasource.addAccountObserver(accountObserver).trigger();
-
-    agentsObserver = new AgentsObserver() {
-      @Override
-      protected void update(Map<String, Agent> agents) {
-        mainHandler.post(() -> {
-          String json = toJson(agents);
-          agentsStreamHandler.success(json);
-        });
-      }
-    };
-    datasource.addAgentsObserver(agentsObserver).trigger();
-
-    chatLogObserver = new ChatLogObserver() {
-      @Override
-      protected void update(LinkedHashMap<String, ChatLog> items) {
-        mainHandler.post(() -> {
-          String json = toJson(items);
-          chatItemsStreamHandler.success(json);
-        });
-      }
-    };
-    datasource.addChatLogObserver(chatLogObserver).trigger();
-  }
-
-  private void unbindChatListeners() {
-    DataSource datasource = ZopimChatApi.getDataSource();
-
-    if (connectionObserver != null) {
-      datasource.deleteConnectionObserver(connectionObserver);
-      connectionObserver = null;
-    }
-    if (accountObserver != null) {
-      datasource.deleteAccountObserver(accountObserver);
-      accountObserver = null;
-    }
-    if (agentsObserver != null) {
-      datasource.deleteAgentsObserver(agentsObserver);
-      agentsObserver = null;
-    }
-    if (chatLogObserver != null) {
-      datasource.deleteChatLogObserver(chatLogObserver);
-      chatLogObserver = null;
-    }
-  }
+//  private void unbindChatListeners() {
+//    DataSource datasource = ZopimChatApi.getDataSource();
+//
+//    if (connectionObserver != null) {
+//      datasource.deleteConnectionObserver(connectionObserver);
+//      connectionObserver = null;
+//    }
+//    if (accountObserver != null) {
+//      datasource.deleteAccountObserver(accountObserver);
+//      accountObserver = null;
+//    }
+//    if (agentsObserver != null) {
+//      datasource.deleteAgentsObserver(agentsObserver);
+//      agentsObserver = null;
+//    }
+//    if (chatLogObserver != null) {
+//      datasource.deleteChatLogObserver(chatLogObserver);
+//      chatLogObserver = null;
+//    }
+//  }
 
   private String toJson(Object object) {
     return new GsonBuilder()
