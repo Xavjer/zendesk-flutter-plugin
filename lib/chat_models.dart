@@ -287,7 +287,7 @@ class ChatItem extends AbstractModel {
     var out = List<ChatItem>();
     jsonDecode(json).forEach((key, value) {
       var item = ChatItem(key, value, os);
-      if (!item.message.isEmpty)
+      if (item.message != null && !item.message.isEmpty)
         out.add(item);
     });
     return out;
@@ -298,7 +298,7 @@ class ChatItem extends AbstractModel {
     var out = List<ChatItem>();
     jsonDecode(json).forEach((value) {
       var item = ChatItem(value['id'], value, os);
-      if (!item.message.isEmpty)
+      if (item.message != null && !item.message.isEmpty)
         out.add(item);
     });
     return out;
